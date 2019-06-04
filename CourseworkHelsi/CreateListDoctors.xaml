@@ -1,0 +1,14 @@
+﻿<Window x:Class="CourseworkHelsi.CreateListDoctors"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseworkHelsi"
+        mc:Ignorable="d"
+        Title="CreateListDoctors" Height="313.866" Width="661.345">
+    <Grid Margin="0,0,2,3">
+        <Button x:Name = "btnCreateNameDoctors"  Content="Генерувати імена лікарів" FontSize="25"  HorizontalAlignment="Left" Margin="53,181,0,0" VerticalAlignment="Top" Width="527" Height="75" Click="BtnCreateNameDoctors_Click"/>
+        <TextBox x:Name="txtNameBD" HorizontalAlignment="Left" Height="51" FontSize="25" Margin="53,78,0,0" TextWrapping="Wrap" Text="tblNameDoctors.sqlite" VerticalAlignment="Top" Width="527"/>
+
+    </Grid>
+</Window>
