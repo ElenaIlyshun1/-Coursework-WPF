@@ -31,9 +31,44 @@ namespace CourseworkHelsi
             string dbName = txtNameBD.Text;
             SQLiteConnection con = new SQLiteConnection($"Data Source={dbName}");
             con.Open();
-           // GenerateTabels(con);
-          //  Seed(con);
+            GenerateTabels(con);
+            Seed(con);
             con.Close();
+        }
+      
+
+        private void GenerateTabels(SQLiteConnection con)
+        {
+            string query = $"CREATE TABLE IF NOT EXISTS {tblNameDoctors} " +
+                                "(Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                    "Lastname TEXT NOT NULL, " +
+                                    "Firstname TEXT, " +
+                                    "Birthday DATE" +
+                                ");";
+            SQLiteCommand cmd = new SQLiteCommand(query, con);
+            cmd.ExecuteNonQuery();
+        }
+        private void Seed(SQLiteConnection con)
+        {
+            #region SeedNameDoctors
+            string query = $"Insert into {tblNameDoctors}(Lastname, Firstname, Birthday) " +
+                $"values('Мельник', 'Оксана', '2000-01-20');";
+
+            SQLiteCommand cmd = new SQLiteCommand(query, con);
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblNameDoctors}(Lastname, Firstname, Birthday) " +
+                $"values('Шльомов', 'Денис', '1995-03-23');";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblNameDoctors}(Lastname, Firstname, Birthday) " +
+                $"values('Балконський', 'Андрій', '1985-12-31');";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+            #endregion
+
+           
         }
     }
 }
