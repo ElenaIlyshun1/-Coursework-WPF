@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,8 +31,8 @@ namespace CourseworkHelsi
             string dbName = txtNameBD.Text;
             SQLiteConnection con = new SQLiteConnection($"Data Source={dbName}");
             con.Open();
-            GenerateTabels(con);
-            Seed(con);
+           // GenerateTabels(con);
+          //  Seed(con);
             con.Close();
         }
     }
