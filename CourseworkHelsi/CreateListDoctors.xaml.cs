@@ -12,6 +12,7 @@ namespace CourseworkHelsi
     public partial class CreateListDoctors : Window
     {
         private string tblNameDoctors = "tblNameDoctors";
+        
         public CreateListDoctors()
         {
             InitializeComponent();
@@ -41,42 +42,28 @@ namespace CourseworkHelsi
         }
         private void Seed(SQLiteConnection con)
         {
-            #region SeedNameDoctors
-            string query = $"Insert into {tblNameDoctors}(Lastname, Firstname, Birthday) " +
-                $"values('Мельник', 'Оксана', '2000-01-20');";
-
-            SQLiteCommand cmd = new SQLiteCommand(query, con);
-            cmd.ExecuteNonQuery();
-
-            query = $"Insert into {tblNameDoctors}(Lastname, Firstname, Birthday) " +
-                $"values('Шльомов', 'Денис', '1995-03-23');";
-            cmd.CommandText = query;
-            cmd.ExecuteNonQuery();
-
-            query = $"Insert into {tblNameDoctors}(Lastname, Firstname, Birthday) " +
-                $"values('Балконський', 'Андрій', '1985-12-31');";
-            cmd.CommandText = query;
-            cmd.ExecuteNonQuery();
-            #endregion
-
+            #region SeedNameDoctors         
             var userFaker = new Faker<DoctorsService>("uk")
-                .RuleFor(o => o.Name, f => f.Name.FirstName())
-                .RuleFor(o => o.LastName, f => f.Name.LastName())          
-                .RuleFor(o => o.Birthday, f => f.Date.Past());
+               .RuleFor(o => o.Name, f => f.Name.FirstName())
+               .RuleFor(o => o.LastName, f => f.Name.LastName())
+               .RuleFor(o => o.Birthday, f => f.Date.Past());
             var list = userFaker.Generate(1000);
             foreach (var user in list)
             {
                 string first_name = user.Name;
                 string last_name = user.LastName;
-            //    string lastName = user.LastName;
-            //    int age = user.Age;
-            //    int birthday = 1990;
-            //    string city = user.City;
-            //    string query = $"INSERT INTO USERS (NAME, LASTNAME, CITY, AGE, BIRTHDAY) VALUES ('{nameGroup}','{lastName}','{city}', {age},{birthday})";
-            //    SQLiteCommand cmd = new SQLiteCommand(query, con);
-            //    cmd.ExecuteNonQuery();
-            //    cmd.Cancel();
+
+                var birthday = user.Birthday;
+                MessageBox.Show(first_name + last_name + birthday);
+                string query = $"Insert into {tblNameDoctors}(Lastname, Firstname, Birthday) " +
+                      $"values('{first_name}','{last_name}','{birthday}');";
+                SQLiteCommand cmd = new SQLiteCommand(query, con);
+                cmd.ExecuteNonQuery();
+                cmd.Cancel();             
             }
+            #endregion
+
+
         }
     }
     public class DoctorsService : INotifyPropertyChanged
