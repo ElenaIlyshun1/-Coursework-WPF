@@ -17,7 +17,7 @@ namespace CourseworkHelsi
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            LoginWindow log = new LoginWindow();
+            CreateListDoctors log = new CreateListDoctors();
             log.ShowDialog();
 
             //new MyClassIWantToInstantiate();
