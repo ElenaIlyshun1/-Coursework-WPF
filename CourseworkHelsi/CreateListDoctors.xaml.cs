@@ -61,15 +61,13 @@ namespace CourseworkHelsi
 
             var userFaker = new Faker<DoctorsService>("uk")
                 .RuleFor(o => o.Name, f => f.Name.FirstName())
-                .RuleFor(o => o.LastName, f => f.Name.LastName())
-       
-           
+                .RuleFor(o => o.LastName, f => f.Name.LastName())          
                 .RuleFor(o => o.Birthday, f => f.Date.Past());
             var list = userFaker.Generate(1000);
-            //foreach (var user in list)
-            //{
-            //    string nameGroup = user.Name;
-            //    int id = user.Id;
+            foreach (var user in list)
+            {
+                string first_name = user.Name;
+                string last_name = user.LastName;
             //    string lastName = user.LastName;
             //    int age = user.Age;
             //    int birthday = 1990;
@@ -78,7 +76,7 @@ namespace CourseworkHelsi
             //    SQLiteCommand cmd = new SQLiteCommand(query, con);
             //    cmd.ExecuteNonQuery();
             //    cmd.Cancel();
-            //}
+            }
         }
     }
     public class DoctorsService : INotifyPropertyChanged
