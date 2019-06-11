@@ -114,7 +114,7 @@ namespace CourseworkHelsi
         {
             string query = $"CREATE TABLE IF NOT EXISTS {tblNameClinic} " +
                                 "(Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                                    "Clinic TEXT NOT NULL" +
+                                    "Clinic TEXT NOT NULL, " +
                                     "Street TEXT NOT NULL" +
                                 ");";
             SQLiteCommand cmd = new SQLiteCommand(query, con);
