@@ -54,7 +54,7 @@ namespace CourseworkHelsi
                 string last_name = user.LastName;
 
                 var birthday = user.Birthday;
-                MessageBox.Show(first_name + last_name + birthday);
+               // MessageBox.Show(first_name + last_name + birthday);
                 string query = $"Insert into {tblNameDoctors}(Lastname, Firstname, Birthday) " +
                       $"values('{first_name}','{last_name}','{birthday}');";
                 SQLiteCommand cmd = new SQLiteCommand(query, con);
