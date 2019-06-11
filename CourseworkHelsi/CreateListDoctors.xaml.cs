@@ -16,6 +16,7 @@ namespace CourseworkHelsi
         private string tblNameClinic = "tblNameClinic";
         private string tblNameClients = "tblNameClients";
         private string tblNameSpecialization = "tblNameSpecialization";
+        private string tblConnectionTables = "tblConnectionTables";
 
         public CreateListDoctors()
         {
@@ -184,9 +185,26 @@ namespace CourseworkHelsi
             string dbName = txtNameBD.Text;
             SQLiteConnection con = new SQLiteConnection($"Data Source={dbName}");
             con.Open();
-            string query = $"DELETE FROM {tblNameDoctors}";
+            string query = $"DELETE FROM {tblNameCity}";
             SQLiteCommand cmd = new SQLiteCommand(query, con);
             cmd.ExecuteNonQuery();
+
+            //query = $"DELETE FROM {tblNameClinic}";
+            //cmd.CommandText = query;
+            //cmd.ExecuteNonQuery();
+
+            query = $"DELETE FROM {tblNameDoctors}";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"DELETE FROM {tblNameSpecialization}";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"DELETE FROM {tblNameClients}";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
             cmd.Cancel();
             con.Close();
         }
@@ -222,6 +240,35 @@ namespace CourseworkHelsi
             }
         }
         #endregion
+
+        private void BtnCreateLinksByTables_Click(object sender, RoutedEventArgs e)
+        {
+            string dbName = txtNameBD.Text;
+            SQLiteConnection con = new SQLiteConnection($"Data Source={dbName}");
+            con.Open();
+            GenerateTabelConnection(con);
+          //  SeedSpecialization(con);
+            con.Close();
+        }
+        private void GenerateTabelConnection(SQLiteConnection con)
+        {
+            string query = $"CREATE TABLE IF NOT EXISTS {tblConnectionTables} " +
+                                "(Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                    "CityId int NOT NULL, " +
+                                    "ClinicId int NOT NULL, " +
+                                    "DoctorsId int NOT NULL, " +
+                                    "SpetealizationId int NOT NULL, " +
+                                    "ClientsId int NOT NULL, " +
+                                    "FOREIGN KEY (CityId) REFERENCES tblStudents(Id), " +
+                                    "FOREIGN KEY (ClinicId) REFERENCES tblSubjects(Id)," +
+                                     "FOREIGN KEY (DoctorsId) REFERENCES tblStudents(Id), " +
+                                    "FOREIGN KEY (SpetealizationId) REFERENCES tblSubjects(Id)," +
+                                     "FOREIGN KEY (ClientsId) REFERENCES tblStudents(Id) " +                                    
+                                ");";
+            SQLiteCommand cmd = new SQLiteCommand(query, con);
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+        }
     }
     public class DoctorsService : INotifyPropertyChanged
     {
