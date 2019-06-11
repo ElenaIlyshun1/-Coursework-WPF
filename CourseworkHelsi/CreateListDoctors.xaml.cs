@@ -22,6 +22,7 @@ namespace CourseworkHelsi
         {
             InitializeComponent();
         }
+
         #region SeedNameDoctors         
         private void BtnCreateNameDoctors_Click(object sender, RoutedEventArgs e)
         {
@@ -209,6 +210,7 @@ namespace CourseworkHelsi
             cmd.Cancel();
             con.Close();
         }
+
         #region SeedNameSpecialization
         private void BtnCreateSpecialization_Click(object sender, RoutedEventArgs e)
         {
@@ -275,7 +277,9 @@ namespace CourseworkHelsi
     {
 
         private string name;
+
         private string lastname;
+
         private DateTime birthday;
         public DateTime Birthday
         {
@@ -319,7 +323,6 @@ namespace CourseworkHelsi
         public string Specialization { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
