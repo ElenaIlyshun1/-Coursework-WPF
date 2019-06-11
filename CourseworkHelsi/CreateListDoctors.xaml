@@ -12,8 +12,9 @@
         <Button x:Name="btnCreateTableCity"  Content="Генерація міст" FontSize="20" HorizontalAlignment="Left" Margin="343,116,0,0" VerticalAlignment="Top" Width="230" Height="75" Click="BtnCreateTableCity_Click"/>
         <Button x:Name="btnCreateTableClinic" Content="Генерація клінік" FontSize="20" HorizontalAlignment="Left" Margin="623,116,0,0" VerticalAlignment="Top" Width="230" Height="75" Click="BtnCreateTableClinic_Click" RenderTransformOrigin="0.503,0.862"/>
         <Button x:Name="btnCreateTableClients" Content="Генерація клієнтів" FontSize="20" HorizontalAlignment="Left" Margin="53,215,0,0" VerticalAlignment="Top" Width="230" Height="75" Click="BtnCreateTableClients_Click"/>
-        <Button x:Name="btnDelete"  Content="Видалити" HorizontalAlignment="Left" FontSize="20" Margin="53,313,0,0" VerticalAlignment="Top" Width="230" Height="75" Click="BtnDelete_Click"/>
+        <Button x:Name="btnDeleteAll"  Content="Видалити все" HorizontalAlignment="Left" FontSize="20" Margin="53,313,0,0" VerticalAlignment="Top" Width="230" Height="75" Click="BtnDelete_Click"/>
         <Button x:Name="btnCreateSpecialization" Content="Генерація спеціалізації" FontSize="20" HorizontalAlignment="Left" Margin="343,215,0,0" VerticalAlignment="Top" Width="230" Height="75" Click="BtnCreateSpecialization_Click"/>
+        <Button x:Name="btnCreateLinksByTables" Content="Створити зв*яок між таблицями" FontSize="20" HorizontalAlignment="Left" Margin="623,215,0,0" VerticalAlignment="Top" Width="230" Height="75" Click="BtnCreateLinksByTables_Click"/>
 
     </Grid>
 </Window>
