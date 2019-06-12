@@ -36,7 +36,7 @@ namespace CourseworkHelsi
         private void SearchUsers()
         {
             doctorsServices.Clear();
-            string dbName = "tblNameDoctors.sqlite";
+            string dbName = "DataBaseAllTables.sqlite";
             SQLiteConnection con = new SQLiteConnection($"Data Source={dbName}");
             con.Open();
             string queryCity = $"SELECT City FROM tblNameCity";
