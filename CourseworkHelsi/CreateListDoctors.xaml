@@ -8,7 +8,7 @@
         Title="CreateListDoctors" Height="446.934" Width="879.749">
     <Grid Margin="0,0,2,3">
         <Button x:Name = "btnCreateNameDoctors"  Content="Генерувати імена лікарів" FontSize="20"  HorizontalAlignment="Left" Margin="53,116,0,0" VerticalAlignment="Top" Width="230" Height="75" Click="BtnCreateNameDoctors_Click"/>
-        <TextBox x:Name="txtNameBD" HorizontalAlignment="Left" Height="51" FontSize="25" Margin="53,36,0,0" TextWrapping="Wrap" Text="tblNameDoctors.sqlite" VerticalAlignment="Top" Width="800"/>
+        <TextBox x:Name="txtNameBD" HorizontalAlignment="Left" Height="51" FontSize="25" Margin="53,36,0,0" TextWrapping="Wrap" Text="DataBaseAllTables.sqlite" VerticalAlignment="Top" Width="800"/>
         <Button x:Name="btnCreateTableCity"  Content="Генерація міст" FontSize="20" HorizontalAlignment="Left" Margin="343,116,0,0" VerticalAlignment="Top" Width="230" Height="75" Click="BtnCreateTableCity_Click"/>
         <Button x:Name="btnCreateTableClinic" Content="Генерація клінік" FontSize="20" HorizontalAlignment="Left" Margin="623,116,0,0" VerticalAlignment="Top" Width="230" Height="75" Click="BtnCreateTableClinic_Click" RenderTransformOrigin="0.503,0.862"/>
         <Button x:Name="btnCreateTableClients" Content="Генерація клієнтів" FontSize="20" HorizontalAlignment="Left" Margin="53,215,0,0" VerticalAlignment="Top" Width="230" Height="75" Click="BtnCreateTableClients_Click"/>
