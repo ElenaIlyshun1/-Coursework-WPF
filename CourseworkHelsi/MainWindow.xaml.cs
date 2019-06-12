@@ -30,6 +30,7 @@ namespace CourseworkHelsi
             InitializeComponent();
             SearchUsers();
             //ListCity.ItemsSource = doctorsServices;
+
         }
 
         private void SearchUsers()
