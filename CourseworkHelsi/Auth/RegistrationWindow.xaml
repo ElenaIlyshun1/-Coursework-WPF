@@ -1,0 +1,41 @@
+﻿<Window x:Class="CourseworkHelsi.Auth.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseworkHelsi.Auth"
+        mc:Ignorable="d"
+        Title="RegistrationWindow" Height="409" Width="400">
+    <Canvas>
+        <Popup x:Name="popup1" StaysOpen="False" Placement="Right" MaxWidth="180"
+         AllowsTransparency="True"  >
+            <TextBlock TextWrapping="Wrap" Width="180" Background="LightPink" Opacity="0.8" >
+           Текст содержит запрещенные символы.
+            </TextBlock>
+        </Popup>
+
+        <Label Content="РЕГИСТРАЦИОННАЯ ИНФОРМАЦИЯ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="223" Canvas.Left="92" Canvas.Top="10" FontFamily="Times New Roman"/>
+        <Label Content="Имя:" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="56" Canvas.Top="53" RenderTransformOrigin="0.889,0.654"/>
+        <Label Content="Фамилия:" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="56" Canvas.Top="84"/>
+        <Label Content="Номер телефона:" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="56" Canvas.Top="115"/>
+
+        <Label Content="Дом. адреса:" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="56" Canvas.Top="146"/>
+        <TextBox x:Name="txt_FirstName" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Height="20" Canvas.Left="174" Canvas.Top="53" PreviewTextInput="Txt_FirstName_PreviewTextInput" AutomationProperties.HelpText="kpkok"/>
+        <TextBox x:Name="txt_LastName" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Height="20" Canvas.Left="174" Canvas.Top="84" PreviewTextInput="Txt_LastName_PreviewTextInput"/>
+        <TextBox x:Name="txt_PhoneNumber" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Height="20" Canvas.Left="174" Canvas.Top="115" PreviewTextInput="Txt_PhoneNumber_PreviewTextInput"/>
+
+        <TextBox x:Name="txt_Adressa" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Height="20" Canvas.Left="174" Canvas.Top="146"/>
+        <Button x:Name="btn_Regis" Content="Регистрация" Canvas.Left="79" Canvas.Top="317" Width="100" Height="36" Click="Btn_Regis_Click"/>
+        <Button x:Name="btn_Cencel" Content="Отмена" Canvas.Left="215" Canvas.Top="317" Width="100" Height="36" Click="Btn_Cencel_Click"/>
+
+        <Border BorderBrush="Black" BorderThickness="1" Height="4" Width="392" Canvas.Top="189" Background="#FFB2B2B2" Canvas.Left="25"/>
+
+        <Label Content="Введите почту:" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="55" Canvas.Top="205"/>
+        <TextBox x:Name="txt_login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="164" Height="20" Canvas.Left="174" Canvas.Top="211"/>
+        <Label Content="Введите пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="55" Canvas.Top="236"/>
+        <Label Content="Повторите пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="55" Canvas.Top="265"/>
+        <PasswordBox x:Name="Password" Canvas.Left="174" Canvas.Top="244" Width="164"/>
+        <PasswordBox x:Name="Password_Copy" Canvas.Left="174" Canvas.Top="273" Width="164"/>
+
+    </Canvas>
+</Window>

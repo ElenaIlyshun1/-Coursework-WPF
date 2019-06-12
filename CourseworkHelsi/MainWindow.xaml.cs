@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,13 @@ namespace CourseworkHelsi
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        ObservableCollection<DoctorsService> doctorsServices = new ObservableCollection<DoctorsService>();
         public MainWindow()
         {
             InitializeComponent();
+            dataGridCity.ItemsSource = doctorsServices;
         }
+
     }
 }
