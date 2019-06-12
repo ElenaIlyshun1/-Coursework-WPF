@@ -22,6 +22,13 @@ namespace CourseworkHelsi
         public CreateListDoctors()
         {
             InitializeComponent();
+            string dbName = txtNameBD.Text;
+            SQLiteConnection con = new SQLiteConnection($"Data Source={dbName}");
+            con.Open();
+            string query = "PRAGMA foreign_keys = ON";
+            SQLiteCommand cmd = new SQLiteCommand(query, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         #region SeedNameDoctors         
@@ -141,7 +148,7 @@ namespace CourseworkHelsi
                 cmd.Cancel();
             }
         }
-        #endregion//доробити!!!
+        #endregion
         #region SeedNameClients 
         private void BtnCreateTableClients_Click(object sender, RoutedEventArgs e)
         {
@@ -192,9 +199,9 @@ namespace CourseworkHelsi
             SQLiteCommand cmd = new SQLiteCommand(query, con);
             cmd.ExecuteNonQuery();
 
-            //query = $"DELETE FROM {tblNameClinic}";
-            //cmd.CommandText = query;
-            //cmd.ExecuteNonQuery();
+            query = $"DELETE FROM {tblNameClinic}";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
 
             query = $"DELETE FROM {tblNameDoctors}";
             cmd.CommandText = query;
@@ -245,13 +252,14 @@ namespace CourseworkHelsi
         }
         #endregion
 
+        #region SeedTabelConnection
         private void BtnCreateLinksByTables_Click(object sender, RoutedEventArgs e)
         {
             string dbName = txtNameBD.Text;
             SQLiteConnection con = new SQLiteConnection($"Data Source={dbName}");
             con.Open();
             GenerateTabelConnection(con);
-          //  SeedSpecialization(con);
+            SeedConnection(con);
             con.Close();
         }
         private void GenerateTabelConnection(SQLiteConnection con)
@@ -265,14 +273,120 @@ namespace CourseworkHelsi
                                     "ClientsId int NOT NULL, " +
                                     "FOREIGN KEY (CityId) REFERENCES tblStudents(Id), " +
                                     "FOREIGN KEY (ClinicId) REFERENCES tblSubjects(Id)," +
-                                     "FOREIGN KEY (DoctorsId) REFERENCES tblStudents(Id), " +
+                                    "FOREIGN KEY (DoctorsId) REFERENCES tblStudents(Id), " +
                                     "FOREIGN KEY (SpetealizationId) REFERENCES tblSubjects(Id)," +
-                                     "FOREIGN KEY (ClientsId) REFERENCES tblStudents(Id) " +                                    
+                                    "FOREIGN KEY (ClientsId) REFERENCES tblStudents(Id) " +
                                 ");";
             SQLiteCommand cmd = new SQLiteCommand(query, con);
             cmd.CommandText = query;
             cmd.ExecuteNonQuery();
         }
+        private void SeedConnection(SQLiteConnection con)
+        {
+            //string query = query = $"DELETE FROM {tblConnectionTables}";
+            string query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(1,1,10,15,1)";
+            SQLiteCommand cmd = new SQLiteCommand(query, con);
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(1,2,25,1,112)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(1,3,100,5,58)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(1,4,77,7,17)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(1,5,18,4,28)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(1,2,11,2,25)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(1,3,19,11,32)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(1,4,1,6,19)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(2,1,18,1,112)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(2,2,19,8,100)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(2,3,27,14,99)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(2,4,32,6,85)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(2,5,25,15,17)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(2,5,28,3,45)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(2,3,33,4,101)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+            //////////////////////////////////////////////////////////////////////////////////////
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(3,1,22,1,25)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(3,2,12,9,41)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(3,3,17,16,21)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(3,4,19,11,17)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(3,5,11,13,19)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(3,4,35,8,36)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(3,2,28,10,14)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+            //////////////////////////////////////////////////////////////////////////////////////////
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(4,2,1,1,1)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            query = $"Insert into {tblConnectionTables} (CityId,ClinicId,DoctorsId,SpetealizationId,ClientsId) values(5,2,1,1,1)";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
+            cmd.Cancel();
+        }
+        #endregion
     }
     public class DoctorsService : INotifyPropertyChanged
     {
