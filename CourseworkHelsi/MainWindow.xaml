@@ -33,13 +33,25 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Grid.Column="0" HorizontalAlignment="Center">Місто</TextBlock>
-                    <ListBox x:Name="City" Grid.Row="1" Grid.Column="0"
+                    <ListBox x:Name="ListCity" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding City}"
                             Margin="0,0,0,3"
                             ScrollViewer.VerticalScrollBarVisibility="Auto"
                             DisplayMemberPath="ContactName"
                             IsSynchronizedWithCurrentItem="True"
                             >
-                        <DataGrid x:Name="dataGridCity" Height="100" Width="100"/>
+                        <DataGrid x:Name="dataGridCity" AutoGenerateColumns="False" RenderTransformOrigin="0.5,0.5" Margin="0,0,0,52">
+                        <DataGrid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="-0.292"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="-1.069"/>
+                            </TransformGroup>
+                        </DataGrid.RenderTransform>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="  Місто  " Binding="{Binding City}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </ListBox>
 
                     <TextBlock Grid.Column="1" HorizontalAlignment="Center">Клініка</TextBlock>

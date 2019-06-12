@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,11 +24,36 @@ namespace CourseworkHelsi
     {
 
         ObservableCollection<DoctorsService> doctorsServices = new ObservableCollection<DoctorsService>();
+        
         public MainWindow()
         {
             InitializeComponent();
-            dataGridCity.ItemsSource = doctorsServices;
+            SearchUsers();
+            //ListCity.ItemsSource = doctorsServices;
         }
 
+        private void SearchUsers()
+        {
+            doctorsServices.Clear();
+            string dbName = "tblNameDoctors.sqlite";
+            SQLiteConnection con = new SQLiteConnection($"Data Source={dbName}");
+            con.Open();
+            string query = $"SELECT City FROM tblNameCity";
+            SQLiteCommand cmd = new SQLiteCommand(query, con);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            List list = new List();
+            while (reader.Read())
+            {
+                DoctorsService city = new DoctorsService
+                {
+                    City = reader["City"].ToString(),
+                };
+                ListCity.Items.Add(city.City);
+                //doctorsServices.Add(city);
+            }
+            con.Close();
+        }
+
+        
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Bogus;
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.SQLite;
 using System.Windows;
@@ -275,7 +276,7 @@ namespace CourseworkHelsi
     }
     public class DoctorsService : INotifyPropertyChanged
     {
-
+        
         private string name;
 
         private string lastname;
@@ -328,5 +329,6 @@ namespace CourseworkHelsi
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
+        public override string ToString() { return City; }
     }
 }
