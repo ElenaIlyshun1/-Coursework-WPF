@@ -1,5 +1,6 @@
 ﻿using Bogus;
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.SQLite;
 using System.Windows;
@@ -389,7 +390,7 @@ namespace CourseworkHelsi
     }
     public class DoctorsService : INotifyPropertyChanged
     {
-
+        
         private string name;
 
         private string lastname;
@@ -431,8 +432,11 @@ namespace CourseworkHelsi
                 }
             }
         }
+        public string BirthdayDoctor { get; set; }
         public string City { get; set; }
         public string Clinic { get; set; }
+
+        public string Doctors { get; set; }
         public string Street { get; set; }
         public string Specialization { get; set; }
 
@@ -442,5 +446,6 @@ namespace CourseworkHelsi
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
+        public override string ToString() { return City; }
     }
 }
