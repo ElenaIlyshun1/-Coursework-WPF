@@ -318,8 +318,11 @@ namespace CourseworkHelsi
                 }
             }
         }
+        public string BirthdayDoctor { get; set; }
         public string City { get; set; }
         public string Clinic { get; set; }
+
+        public string Doctors { get; set; }
         public string Street { get; set; }
         public string Specialization { get; set; }
 

@@ -55,7 +55,7 @@
                     </ListBox>
 
                     <TextBlock Grid.Column="1" HorizontalAlignment="Center">Клініка</TextBlock>
-                    <ListBox x:Name="Clinic" Grid.Row="1" Grid.Column="1"
+                    <ListBox x:Name="ListClinic" Grid.Row="1" Grid.Column="1"
                             Margin="0,0,0,3"
                             ScrollViewer.VerticalScrollBarVisibility="Auto"
                             DisplayMemberPath="OrderDate"
@@ -65,7 +65,7 @@
                     </ListBox>
 
                     <TextBlock Grid.Column="2" HorizontalAlignment="Center">Лікар</TextBlock>
-                    <ListBox x:Name="Doctors" Grid.Row="1" Grid.Column="2"
+                    <ListBox x:Name="ListDoctors" Grid.Row="1" Grid.Column="2"
                             Margin="0,0,0,3"
                             ScrollViewer.VerticalScrollBarVisibility="Auto"
                             DisplayMemberPath="OrderDate"

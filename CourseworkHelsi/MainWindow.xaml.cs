@@ -38,18 +38,48 @@ namespace CourseworkHelsi
             string dbName = "tblNameDoctors.sqlite";
             SQLiteConnection con = new SQLiteConnection($"Data Source={dbName}");
             con.Open();
-            string query = $"SELECT City FROM tblNameCity";
-            SQLiteCommand cmd = new SQLiteCommand(query, con);
-            SQLiteDataReader reader = cmd.ExecuteReader();
-            List list = new List();
-            while (reader.Read())
+            string queryCity = $"SELECT City FROM tblNameCity";
+            SQLiteCommand cmdCity = new SQLiteCommand(queryCity, con);
+            SQLiteDataReader readerCity = cmdCity.ExecuteReader();
+            while (readerCity.Read())
             {
                 DoctorsService city = new DoctorsService
                 {
-                    City = reader["City"].ToString(),
+                    City = readerCity["City"].ToString(),
                 };
-                ListCity.Items.Add(city.City);
-                //doctorsServices.Add(city);
+                ListBoxItem itm = new ListBoxItem();
+                itm.Content = city.City;
+                ListCity.Items.Add(itm);
+            }
+
+            string queryClinic = $"SELECT Clinic FROM tblNameClinic";
+            SQLiteCommand cmdClinic = new SQLiteCommand(queryClinic, con);
+            SQLiteDataReader readerClinic = cmdClinic.ExecuteReader();
+            while (readerClinic.Read())
+            {
+                DoctorsService clinic = new DoctorsService
+                {
+                    Clinic = readerClinic["Clinic"].ToString(),
+                };
+                ListBoxItem itm = new ListBoxItem();
+                itm.Content = clinic.Clinic;
+                ListClinic.Items.Add(itm);
+            }
+
+            string queryDoctors = $"SELECT Lastname, Firstname, Birthday FROM tblNameDoctors";
+            SQLiteCommand cmdDoctors = new SQLiteCommand(queryDoctors, con);
+            SQLiteDataReader readerDoctors = cmdDoctors.ExecuteReader();
+            while (readerDoctors.Read())
+            {
+                DoctorsService doctors = new DoctorsService
+                {
+                    Doctors = readerDoctors["Lastname"].ToString(),
+                    Name = readerDoctors["Firstname"].ToString(),
+                    // = readerDoctors["Birthday"].ToString(),
+                };
+                ListBoxItem itm = new ListBoxItem();
+                itm.Content = doctors.Doctors + " " + doctors.Name + " " + doctors.BirthdayDoctor;
+                ListDoctors.Items.Add(itm);
             }
             con.Close();
         }
