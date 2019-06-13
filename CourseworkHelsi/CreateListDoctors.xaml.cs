@@ -215,6 +215,10 @@ namespace CourseworkHelsi
             cmd.CommandText = query;
             cmd.ExecuteNonQuery();
 
+            query = $"DELETE FROM {tblConnectionTables}";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+
             cmd.Cancel();
             con.Close();
         }
