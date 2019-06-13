@@ -4,17 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseworkHelsi.Auth"
+        xmlns:p="clr-namespace:CourseworkHelsi.Properties"
         mc:Ignorable="d"
-        Title="AuthorizationWindow" Height="430" Width="400">
+        Title="{x:Static p:Resources.MainWindow_Title}" Height="430" Width="400">
     <Canvas>
-        <Label Content="Введите почту:" Canvas.Left="82" Canvas.Top="82" Width="100" Background="#FFFBFFB1"/>
-        <TextBox x:Name="txt_email" Height="22" Canvas.Left="82" TextWrapping="Wrap" Text="" Canvas.Top="108" Width="240"/>
-        <Label Content="Введите пароль:" Canvas.Left="82" Canvas.Top="130" Width="100" Background="#FFFBFFB1"/>
-        <PasswordBox x:Name="txt_password" Height="24" Canvas.Left="82" Canvas.Top="156" Width="240"/>
+        <Label Content="{x:Static p:Resources.TxtEmail}" Canvas.Left="80" Canvas.Top="113" Width="175" Background="#FFFBFFB1"/>
+        <TextBox x:Name="txt_email" Height="22" Canvas.Left="80" TextWrapping="Wrap" Text="" Canvas.Top="139" Width="240"/>
+        <Label Content="{x:Static p:Resources.TxtPasswd}" Canvas.Left="80" Canvas.Top="161" Width="100" Background="#FFFBFFB1"/>
+        <PasswordBox x:Name="txt_password" Height="24" Canvas.Left="80" Canvas.Top="187" Width="240"/>
 
-        <Button x:Name="btn_auth" Content="Вход" Canvas.Left="222" Canvas.Top="196" Width="100" Height="36" Click="Btn_auth_Click"/>
-        <Button x:Name="btn_regis" Content="Регистрация" Canvas.Left="82" Canvas.Top="196" Width="100" Height="36" Click="Btn_regis_Click"/>
-        <Button x:Name="btnClose" Content="Выход" Width="240" Canvas.Left="82" Canvas.Top="262" Click="BtnClose_Click"/>
+        <Button x:Name="btn_auth" Content="{x:Static p:Resources.btnOpen}" Canvas.Left="220" Canvas.Top="227" Width="100" Height="36" Click="Btn_auth_Click"/>
+        <Button x:Name="btn_regis" Content="{x:Static p:Resources.btnRegister}" Canvas.Left="80" Canvas.Top="227" Width="120" Height="36" Click="Btn_regis_Click"/>
+        <Button x:Name="btnClose" Content="{x:Static p:Resources.btnExit}" Width="240" Canvas.Left="80" Canvas.Top="293" Click="BtnClose_Click"/>
+        <Label Content="{x:Static p:Resources.TxtSelectLng}" Canvas.Left="182" Canvas.Top="31" Background="#FFFBFFB1" RenderTransformOrigin="-0.245,1.128"/>
+        <RadioButton x:Name="m_RadioButton1" Content="UA" Canvas.Left="289" Canvas.Top="18" RenderTransformOrigin="0.771,-0.542" Click="M_RadioButton1_Click"/>
+        <RadioButton x:Name="m_RadioButton2" Content="RU" Canvas.Left="289" Canvas.Top="39" Click="M_RadioButton2_Click"/>
+        <RadioButton x:Name="m_RadioButton3" Content="EN" Canvas.Left="289" Canvas.Top="60" Click="M_RadioButton3_Click"/>
 
     </Canvas>
 </Window>

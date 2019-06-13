@@ -14,8 +14,16 @@ namespace CourseworkHelsi
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            var lang = ConfigurationManager.AppSettings["setLang"];
+
+            System.Threading.Thread.CurrentThread.CurrentUICulture
+               = new System.Globalization.CultureInfo(lang);
+        }
         protected override void OnStartup(StartupEventArgs e)
         {
+            
             base.OnStartup(e);
             AuthorizationWindow log = new AuthorizationWindow();
             log.ShowDialog();
