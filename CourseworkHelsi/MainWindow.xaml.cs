@@ -37,6 +37,8 @@ namespace CourseworkHelsi
         {
             doctorsServices.Clear();
             string dbName = "tblNameDoctors.sqlite";
+            string dbName2 = "DataBaseAllTables.sqlite";
+            
             SQLiteConnection con = new SQLiteConnection($"Data Source={dbName}");
             con.Open();
             string queryCity = $"SELECT City FROM tblNameCity";
@@ -53,7 +55,7 @@ namespace CourseworkHelsi
                 ListCity.Items.Add(itm);
             }
 
-            string queryClinic = $"SELECT Clinic FROM tblNameClinic";
+            string queryClinic = $"SELECT Clinic, Street FROM tblNameClinic";
             SQLiteCommand cmdClinic = new SQLiteCommand(queryClinic, con);
             SQLiteDataReader readerClinic = cmdClinic.ExecuteReader();
             while (readerClinic.Read())
@@ -61,9 +63,10 @@ namespace CourseworkHelsi
                 DoctorsService clinic = new DoctorsService
                 {
                     Clinic = readerClinic["Clinic"].ToString(),
+                    Street = readerClinic["Street"].ToString(),
                 };
                 ListBoxItem itm = new ListBoxItem();
-                itm.Content = clinic.Clinic;
+                itm.Content = clinic.Clinic + " >< " + clinic.Street;
                 ListClinic.Items.Add(itm);
             }
 
@@ -82,7 +85,41 @@ namespace CourseworkHelsi
                 itm.Content = doctors.Doctors + " " + doctors.Name + " " + doctors.BirthdayDoctor;
                 ListDoctors.Items.Add(itm);
             }
+            
+
+            SQLiteConnection con2 = new SQLiteConnection($"Data Source={dbName2}");
+            con2.Open();
+            string querySpecialization = $"SELECT Specialization FROM tblNameSpecialization";
+            SQLiteCommand cmdSpecialization = new SQLiteCommand(querySpecialization, con2);
+            SQLiteDataReader readerSpecialization = cmdSpecialization.ExecuteReader();
+            while (readerSpecialization.Read())
+            {
+                DoctorsService specialization = new DoctorsService
+                {
+                    Specialization = readerSpecialization["Specialization"].ToString(),
+                };
+                ListBoxItem itm = new ListBoxItem();
+                itm.Content = specialization.Specialization;
+                ListSpecialization.Items.Add(itm);
+            }
+
+            string queryClients = $"SELECT Lastname, Firstname, Birthday FROM tblNameClients";
+            SQLiteCommand cmdClients = new SQLiteCommand(queryClients, con2);
+            SQLiteDataReader readerClients = cmdClients.ExecuteReader();
+            while (readerClients.Read())
+            {
+                DoctorsService clients = new DoctorsService
+                {
+                    ClientsLastName = readerClients["Lastname"].ToString(),
+                    ClientsFirstName = readerClients["Firstname"].ToString(),
+                    //ClientsBirthday = readerClients["Birthday"].ToString(),
+                };
+                ListBoxItem itm = new ListBoxItem();
+                itm.Content = clients.ClientsLastName + " " + clients.ClientsFirstName + " " + clients.ClientsBirthday;
+                ListClients.Items.Add(itm);
+            }
             con.Close();
+            con2.Close();
         }
 
         

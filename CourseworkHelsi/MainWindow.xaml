@@ -12,7 +12,12 @@
             Color="{x:Static SystemColors.ControlColor}" />
     </Window.Resources>
     <Grid Background="{StaticResource ResourceKey=ControlColorBrush}">
-        <TabControl>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="57*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl Background="#FFB8F0AB" Grid.ColumnSpan="3">
 
             <Grid Name="grid1">
                 <Grid.RowDefinitions>
@@ -40,14 +45,14 @@
                             IsSynchronizedWithCurrentItem="True"
                             >
                         <DataGrid x:Name="dataGridCity" AutoGenerateColumns="False" RenderTransformOrigin="0.5,0.5" Margin="0,0,0,52">
-                        <DataGrid.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform AngleX="-0.292"/>
-                                <RotateTransform/>
-                                <TranslateTransform X="-1.069"/>
-                            </TransformGroup>
-                        </DataGrid.RenderTransform>
+                            <DataGrid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleX="-0.292"/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="-1.069"/>
+                                </TransformGroup>
+                            </DataGrid.RenderTransform>
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="  Місто  " Binding="{Binding City}" />
                             </DataGrid.Columns>
@@ -75,7 +80,7 @@
                     </ListBox>
 
                     <TextBlock Grid.Column="3" HorizontalAlignment="Center">Спеціальність</TextBlock>
-                    <ListBox x:Name="Spetial" Grid.Row="1" Grid.Column="3"
+                    <ListBox x:Name="ListSpecialization" Grid.Row="1" Grid.Column="3"
                             Margin="0,0,0,3"
                             ScrollViewer.VerticalScrollBarVisibility="Auto"
                             DisplayMemberPath="ProductName"
@@ -84,7 +89,7 @@
                     </ListBox>
 
                     <TextBlock Grid.Column="4" HorizontalAlignment="Center">Клієнти</TextBlock>
-                    <ListBox x:Name="Clients" Grid.Row="1" Grid.Column="4"
+                    <ListBox x:Name="ListClients" Grid.Row="1" Grid.Column="4"
                             Margin="0,0,0,3"
                             ScrollViewer.VerticalScrollBarVisibility="Auto"
                             DisplayMemberPath="ProductName"  Grid.ColumnSpan="2"
@@ -109,28 +114,28 @@
                     <TextBox Grid.Row="0" Grid.Column="1" 
                             Text="{Binding Path=CustomersOrders/ShipName, Mode=OneWay}"
                             Focusable="False"
-                            Margin="5,0,0,0"
+                            Margin="5,0,0,0" Background="#FF96C896"
                             />
 
                     <TextBlock Grid.Row="1">Прізвище:</TextBlock>
                     <TextBox Grid.Row="1" Grid.Column="1" 
                             Text="{Binding Path=CustomersOrders/ShipAddress, Mode=OneWay}"
                             Focusable="False"
-                            Margin="5,0,0,0"
+                            Margin="5,0,0,0" Background="#FF96C896"
                             />
 
                     <TextBlock Grid.Row="2">Дата народження:</TextBlock>
                     <TextBox Grid.Row="2" Grid.Column="1" 
                             Text="{Binding Path=CustomersOrders/ShipCity, Mode=OneWay}"
                             Focusable="False"
-                            Margin="5,0,0,0"
+                            Margin="5,0,0,0" Background="#FF96C896"
                             />
 
                     <TextBlock Grid.Row="3">Місто:</TextBlock>
                     <TextBox Grid.Row="3" Grid.Column="1" 
                             Text="{Binding Path=CustomersOrders/ShipCountry, Mode=OneWay}"
                             Focusable="False"
-                            Margin="5,0,0,0"
+                            Margin="5,0,0,0" Background="#FF96C896"
                            />
                 </Grid>
             </Grid>
