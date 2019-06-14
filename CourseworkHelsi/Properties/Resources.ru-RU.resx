@@ -118,57 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnExit" xml:space="preserve">
-    <value>Exit</value>
+    <value>Закрыть программу</value>
   </data>
   <data name="btnOpen" xml:space="preserve">
-    <value>Log in</value>
+    <value>Войти</value>
   </data>
   <data name="btnRegister" xml:space="preserve">
-    <value>Sign up</value>
+    <value>Зарегистрироваться</value>
   </data>
   <data name="MainWindow_Title" xml:space="preserve">
-    <value>Registration window</value>
+    <value>Окно регистрации</value>
   </data>
   <data name="TxtEmail" xml:space="preserve">
-    <value>Enter your e-mail:</value>
+    <value>Электронный ящик:</value>
   </data>
   <data name="TxtPasswd" xml:space="preserve">
-    <value>Enter password:</value>
+    <value>Пароль:</value>
   </data>
   <data name="TxtSelectLng" xml:space="preserve">
-    <value>Language choice:</value>
-  </data>
-  <data name="btnCencel" xml:space="preserve">
-    <value>Cencel</value>
-  </data>
-  <data name="btnRed" xml:space="preserve">
-    <value>Registration</value>
+    <value>Выбор языка:</value>
   </data>
   <data name="EnterCopyPasswd" xml:space="preserve">
-    <value>Repeat password:</value>
+    <value>Повторите пароль:</value>
   </data>
   <data name="EnterEmain" xml:space="preserve">
-    <value>Enter e-mail:</value>
+    <value>Введите почту:</value>
   </data>
   <data name="EnterPasswd" xml:space="preserve">
-    <value>Enter password:</value>
+    <value>Введите пароль:</value>
   </data>
   <data name="MainWindow_Title2" xml:space="preserve">
-    <value>Custom data</value>
+    <value>Пользовательские данные</value>
   </data>
   <data name="txtAdress" xml:space="preserve">
-    <value>Home address:</value>
+    <value>Дом. адресса:</value>
   </data>
   <data name="txtName" xml:space="preserve">
-    <value>Name:</value>
+    <value>Имя:</value>
   </data>
   <data name="txtPhone" xml:space="preserve">
-    <value>Phone:</value>
+    <value>Моб. телефон:</value>
   </data>
   <data name="txtSurname" xml:space="preserve">
-    <value>Syrname:</value>
+    <value>Фамилия:</value>
   </data>
   <data name="txtTitle" xml:space="preserve">
-    <value>REGISTRATION INFORMATION</value>
+    <value>РЕГИСТРАЦИОННАЯ ИНФОРМАЦИЯ</value>
   </data>
 </root>

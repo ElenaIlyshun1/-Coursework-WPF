@@ -118,57 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnExit" xml:space="preserve">
-    <value>Exit</value>
+    <value>Закрити програму</value>
   </data>
   <data name="btnOpen" xml:space="preserve">
-    <value>Log in</value>
+    <value>Ввійти</value>
   </data>
   <data name="btnRegister" xml:space="preserve">
-    <value>Sign up</value>
+    <value>Зареєструватися</value>
   </data>
   <data name="MainWindow_Title" xml:space="preserve">
-    <value>Registration window</value>
+    <value>Вікно реєстрації</value>
   </data>
   <data name="TxtEmail" xml:space="preserve">
-    <value>Enter your e-mail:</value>
+    <value>Введіть електронну скриньку:</value>
   </data>
   <data name="TxtPasswd" xml:space="preserve">
-    <value>Enter password:</value>
+    <value>Введіть пароль:</value>
   </data>
   <data name="TxtSelectLng" xml:space="preserve">
-    <value>Language choice:</value>
-  </data>
-  <data name="btnCencel" xml:space="preserve">
-    <value>Cencel</value>
-  </data>
-  <data name="btnRed" xml:space="preserve">
-    <value>Registration</value>
+    <value>Вибір мови:</value>
   </data>
   <data name="EnterCopyPasswd" xml:space="preserve">
-    <value>Repeat password:</value>
+    <value>Повторіть пароль:</value>
   </data>
   <data name="EnterEmain" xml:space="preserve">
-    <value>Enter e-mail:</value>
+    <value>Введіть ел. пошту:</value>
   </data>
   <data name="EnterPasswd" xml:space="preserve">
-    <value>Enter password:</value>
+    <value>Введіть пароль:</value>
   </data>
   <data name="MainWindow_Title2" xml:space="preserve">
-    <value>Custom data</value>
+    <value>Користувацькі дані</value>
   </data>
   <data name="txtAdress" xml:space="preserve">
-    <value>Home address:</value>
+    <value>Дом. адреса:</value>
   </data>
   <data name="txtName" xml:space="preserve">
-    <value>Name:</value>
+    <value>Ім'я</value>
   </data>
   <data name="txtPhone" xml:space="preserve">
-    <value>Phone:</value>
+    <value>Телефон</value>
   </data>
   <data name="txtSurname" xml:space="preserve">
-    <value>Syrname:</value>
+    <value>Фамілія</value>
   </data>
   <data name="txtTitle" xml:space="preserve">
-    <value>REGISTRATION INFORMATION</value>
+    <value>РЕЄСТРАЦІЙНА ІНФОРМАЦІЯ</value>
   </data>
 </root>
